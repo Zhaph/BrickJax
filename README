@@ -1,0 +1,18 @@
+We've put together a script that we're hoping to get added to LEGO Answers that will allow users to 
+easily insert images of Bricks, with or without links, and also links to sets on various listings 
+sites via simple tags.
+
+The supported tags are:
+
+    [part:3700:4]
+    Draw a part (Technic Brick 1 x 2 with Hole) in a colour (red).
+    [partlink:3700:4]
+    Draw a part (Technic Brick 1 x 2 with Hole) in a colour (red) and link to it on Peeron.com.
+    [set:5590]
+    Link to set 5590 on Peeron.
+    [bl:5590]
+    Link to set 5590 on BrickLink.
+    [bs:5590]
+    Link to set 5590 on BrickSet.
+
+Enjoy

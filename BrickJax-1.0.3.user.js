@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name          BrickJax
 // @namespace	  http://brickjax.doodle.co.uk/
-// @description	  Supplies Brick images for http://bricks.stackexchange.com/ - Version 1.0.3
+// @description	  Supplies Brick images for http://bricks.stackexchange.com/ - Version 1.0.4
 // @include       http://bricks.stackexchange.com/*
 // @include       http://meta.bricks.stackexchange.com/*
 // @include       http://chat.stackexchange.com/rooms/1741/*
@@ -24,6 +24,8 @@
 * http://benalman.com/about/license/
 */
 
+(function ($) { $.fn.replaceText = function (b, a, c) { return this.each(function () { var f = this.firstChild, g, e, d = []; if (f) { do { if (f.nodeType === 3) { g = f.nodeValue; e = g.replace(b, a); if (e !== g) { if (!c && /</.test(e)) { $(f).before(e); d.push(f) } else { f.nodeValue = e } } } } while (f = f.nextSibling) } d.length && $(d).remove() }) } })(jQuery);
+
 var brickJax = (function ($) {
     "use strict";
     var brickJax = {};
@@ -38,7 +40,6 @@ var brickJax = (function ($) {
 
     function buildImage(ajaxData) {
         log("Entered buildImage");
-        // log(ajaxData);
 
         var text = '<img style="max-height:100px;" src="' + ajaxData.Src + '" alt="' + ajaxData.AltText + '" />';
 
@@ -47,7 +48,6 @@ var brickJax = (function ($) {
 
     function buildLink(ajaxData) {
         log("Entered buildLink");
-        //log(ajaxData);
 
         var text = '<a href="http://www.peeron.com/inv/parts/' + ajaxData.PartId + '">' + ajaxData.BrickName;
         if (ajaxData.BrickName.indexOf(ajaxData.PartId) == -1) {
@@ -148,7 +148,6 @@ var brickJax = (function ($) {
             url: "http://brickjax.doodle.co.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
             dataType: "jsonp",
             onload: function (data) {
-                //log("Loaded Data");
                 $(node).replaceText(str, buildImage($.parseJSON(data.responseText)));
             }
         });
@@ -162,7 +161,6 @@ var brickJax = (function ($) {
             url: "http://brickjax.doodle.co.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
             dataType: "jsonp",
             onload: function (data) {
-                //log("Loaded Data");
                 $(node).replaceText(str, buildLink($.parseJSON(data.responseText)));
             }
         });
@@ -177,5 +175,3 @@ var brickJax = (function ($) {
 })(jQuery);
 
 brickJax.replaceTags($('body'));
-
-(function ($) { $.fn.replaceText = function (b, a, c) { return this.each(function () { var f = this.firstChild, g, e, d = []; if (f) { do { if (f.nodeType === 3) { g = f.nodeValue; e = g.replace(b, a); if (e !== g) { if (!c && /</.test(e)) { $(f).before(e); d.push(f) } else { f.nodeValue = e } } } } while (f = f.nextSibling) } d.length && $(d).remove() }) } })(jQuery);

@@ -20,3 +20,9 @@ The supported tags are:
     [bs:5590]
     Link to set 5590 on BrickSet.
 
+These codes should be replaced by images:  
+[PART:3001:14]  
+[parT:2337]  
+[part:777p06]  
+[part:6260c01:21]  
+[part:884]  

@@ -14,7 +14,12 @@
         }
 
         function GM_xmlhttpRequest(obj) {
-            GM_log(obj);
+            $.ajax({
+                method: obj.method,
+                url: obj.url,
+                dataType: obj.dataType,
+                success: obj.onload
+            });
         }
     </script>
     <script src="{{ '/assets/js/respond.js' | relative_url }}"></script>

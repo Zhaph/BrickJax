@@ -1,17 +1,20 @@
 ﻿// ==UserScript==
 // @name          BrickJax
-// @namespace	  http://brickjax.doodle.co.uk/
+// @namespace     http://brickjax.doodle.co.uk/
 // @description	  Supplies Brick images for http://bricks.stackexchange.com/ - Version 1.0.4
-// @include       http://bricks.stackexchange.com/*
-// @include       http://meta.bricks.stackexchange.com/*
-// @include       http://chat.stackexchange.com/rooms/1741/*
-// @include       http://chat.stackexchange.com/rooms/1653/*
-// @require       http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
+// @grant         GM_xmlhttpRequest
+// @grant         GM_log
+// @connect       brickjax.doodle.co.uk
+// @include       https://bricks.stackexchange.com/*
+// @include       https://bricks.meta.stackexchange.com/*
+// @include       https://chat.stackexchange.com/rooms/1741/*
+// @include       https://chat.stackexchange.com/rooms/1653/*
+// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
 // @author        Kevin Cathcart and @Zhaph
 // ==/UserScript==
 
 /*
-* BrickJax v0.12.3
+* BrickJax v0.12.4
 * Copyright (c) 2011 Kevin Cathcart
 * Designed to supply brick images for http://bricks.stackexchange.com/
 * Based on content containing [part:partid:colorid]
@@ -24,7 +27,7 @@
 * http://benalman.com/about/license/
 */
 
-(function ($) { $.fn.replaceText = function (b, a, c) { return this.each(function () { var f = this.firstChild, g, e, d = []; if (f) { do { if (f.nodeType === 3) { g = f.nodeValue; e = g.replace(b, a); if (e !== g) { if (!c && /</.test(e)) { $(f).before(e); d.push(f) } else { f.nodeValue = e } } } } while (f = f.nextSibling) } d.length && $(d).remove() }) } })(jQuery);
+(function ($) { $.fn.replaceText = function (b, a, c) { return this.each(function () { var f = this.firstChild, g, e, d = []; if (f) { do { if (f.nodeType === 3) { g = f.nodeValue; e = g.replace(b, a); if (e !== g) { if (!c && /</.test(e)) { $(f).before(e); d.push(f) } else { f.nodeValue = e } } } } while (f = f.nextSibling) } d.length && $(d).remove() }) } })($);
 
 var brickJax = (function ($) {
     "use strict";
@@ -33,10 +36,10 @@ var brickJax = (function ($) {
     function log(obj) {
         if (window.console) {
             console.log(obj);
-        };
+        }
 
         GM_log(obj);
-    };
+    }
 
     function buildImage(ajaxData) {
         log("Entered buildImage");
@@ -138,7 +141,7 @@ var brickJax = (function ($) {
         searchText(elements, /\[bl:([\w\-]*)(?::([\w\-]*))?\]/gi, replaceBrickLink);
 
         log("Leaving replaceTags");
-    };
+    }
 
     function getBricksForImage(number, colour, node, str) {
         log("Entered getBricksForImage");
@@ -151,7 +154,7 @@ var brickJax = (function ($) {
                 $(node).replaceText(str, buildImage($.parseJSON(data.responseText)));
             }
         });
-    };
+    }
 
     function getBricksForLink(number, colour, node, str) {
         log("Entered getBricksForLink");
@@ -164,7 +167,7 @@ var brickJax = (function ($) {
                 $(node).replaceText(str, buildLink($.parseJSON(data.responseText)));
             }
         });
-    };
+    }
 
     brickJax.buildLink = buildLink;
     brickJax.buildImage = buildImage;
@@ -172,6 +175,6 @@ var brickJax = (function ($) {
     brickJax.getBricksForLink = getBricksForLink;
     brickJax.replaceTags = replaceTags;
     return brickJax;
-})(jQuery);
+})($);
 
 brickJax.replaceTags($('body'));

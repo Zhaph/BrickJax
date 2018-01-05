@@ -1,11 +1,9 @@
-# BrickJax
+# BrickJax Brick Image Replacement for Bricks.StackExchange.com
 ## Welcome to the provisional home of BrickJax
 
 This is a work-in-progress proof-of-concept to show how we might provide some script to replace some tags on [Bricks Stack Exchange](http://bricks.stackexchange.com) with pictures sourced from [LUGNet Parts Guide](http://guide.lugnet.com/partsref/).
 
 When it's complete, the aim is that you would be able to take a reference to the BrickJax script and then where ever it finds matching tags, it replaces them with an image.
-
-We've put together a script that we're hoping to get added to Bricks that will allow users to easily insert images of Bricks, with or without links, and also links to sets on various listings sites via simple tags.
 
 The supported tags are:
 

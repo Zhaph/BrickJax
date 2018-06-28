@@ -14,7 +14,7 @@
 // ==/UserScript==
 
 /*
-* BrickJax v0.12.4
+* BrickJax v0.13.0
 * Copyright (c) 2011 Kevin Cathcart
 * Designed to supply brick images for http://bricks.stackexchange.com/
 * Based on content containing [part:partid:colorid]
@@ -73,7 +73,7 @@ var brickJax = (function ($) {
         log("Entered replaceBrickSet");
         log(str, number, colour, node);
 
-        var text = '<a href="http://www.brickset.com/detail/?Set=' + number + '-1">' + number + ' on BrickSet</a>';
+        var text = '<a href="https://brickset.com/detail/?Set=' + number + '-1">' + number + ' on BrickSet</a>';
 
         $(node).replaceText(str, text);
     }
@@ -82,7 +82,7 @@ var brickJax = (function ($) {
         log("Entered replaceBrickLink");
         log(str, number, colour, node);
 
-        var text = '<a href="http://www.bricklink.com/catalogItem.asp?S=' + number + '-1">' + number + ' on BrickLink</a>';
+        var text = '<a href="https://www.bricklink.com/catalogItem.asp?S=' + number + '-1">' + number + ' on BrickLink</a>';
 
         $(node).replaceText(str, text);
     }
@@ -148,7 +148,7 @@ var brickJax = (function ($) {
 
         GM_xmlhttpRequest({
             method: "POST",
-            url: "http://brickjax.doodle.co.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
+            url: "https://brickjax.doodle.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
             dataType: "jsonp",
             onload: function (data) {
                 $(node).replaceText(str, buildImage($.parseJSON(data.responseText)));
@@ -161,7 +161,7 @@ var brickJax = (function ($) {
 
         GM_xmlhttpRequest({
             method: "POST",
-            url: "http://brickjax.doodle.co.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
+            url: "https://brickjax.doodle.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
             dataType: "jsonp",
             onload: function (data) {
                 $(node).replaceText(str, buildLink($.parseJSON(data.responseText)));

@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name          BrickJax
-// @namespace     http://brickjax.doodle.co.uk/
-// @description	  Supplies Brick images for http://bricks.stackexchange.com/ - Version 1.0.4
+// @namespace     https://brickjax.doodle.uk/
+// @description	  Supplies Brick images for https://bricks.stackexchange.com/
 // @grant         GM_xmlhttpRequest
 // @grant         GM_log
 // @connect       brickjax.doodle.co.uk
@@ -11,10 +11,11 @@
 // @include       https://chat.stackexchange.com/rooms/1653/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
 // @author        Kevin Cathcart and @Zhaph
+// @version       1.0.5
 // ==/UserScript==
 
 /*
-* BrickJax v0.13.0
+* BrickJax v1.0.5
 * Copyright (c) 2011 Kevin Cathcart
 * Designed to supply brick images for http://bricks.stackexchange.com/
 * Based on content containing [part:partid:colorid]

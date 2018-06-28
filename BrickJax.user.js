@@ -11,9 +11,10 @@
 // @include       https://bricks.meta.stackexchange.com/*
 // @include       https://chat.stackexchange.com/rooms/1741/*
 // @include       https://chat.stackexchange.com/rooms/1653/*
+// @include       https://stackapps.com/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
 // @author        Kevin Cathcart and @Zhaph
-// @version       1.0.6
+// @version       1.0.7
 // @updateURL     https://github.com/Zhaph/BrickJax/raw/master/BrickJax.user.js
 // ==/UserScript==
 

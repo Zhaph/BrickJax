@@ -1,9 +1,11 @@
 ﻿// ==UserScript==
 // @name          BrickJax
 // @namespace     https://brickjax.doodle.uk/
-// @description	  Supplies Brick images for https://bricks.stackexchange.com/
+// @description   Supplies Brick images for https://bricks.stackexchange.com/
+// @homepage      https://brickjax.doodle.uk/
 // @grant         GM_xmlhttpRequest
 // @grant         GM_log
+// @connect       brickjax.doodle.uk
 // @connect       brickjax.doodle.co.uk
 // @include       https://bricks.stackexchange.com/*
 // @include       https://bricks.meta.stackexchange.com/*
@@ -11,13 +13,14 @@
 // @include       https://chat.stackexchange.com/rooms/1653/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
 // @author        Kevin Cathcart and @Zhaph
-// @version       1.0.5
+// @version       1.0.6
+// @updateURL     https://github.com/Zhaph/BrickJax/raw/master/BrickJax.user.js
 // ==/UserScript==
 
 /*
-* BrickJax v1.0.5
+* BrickJax v0.12.4
 * Copyright (c) 2011 Kevin Cathcart
-* Designed to supply brick images for http://bricks.stackexchange.com/
+* Designed to supply brick images for https://bricks.stackexchange.com/
 * Based on content containing [part:partid:colorid]
 * Ben Duguid: Added Peeron, BrickLink and BrickSet links for set details
 *

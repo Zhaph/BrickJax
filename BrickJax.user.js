@@ -14,7 +14,7 @@
 // @include       https://stackapps.com/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
 // @author        Kevin Cathcart and @Zhaph
-// @version       1.0.7
+// @version       1.0.8
 // @updateURL     https://github.com/Zhaph/BrickJax/raw/master/BrickJax.user.js
 // ==/UserScript==
 
@@ -39,11 +39,10 @@ var brickJax = (function ($) {
     var brickJax = {};
 
     function log(obj) {
+        return;
         if (window.console) {
             console.log(obj);
         }
-
-        GM_log(obj);
     }
 
     function buildImage(ajaxData) {
@@ -153,7 +152,7 @@ var brickJax = (function ($) {
 
         GM_xmlhttpRequest({
             method: "POST",
-            url: "https://brickjax.doodle.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
+            url: "https://brickjax.doodle.uk/bricks/Details/" + number + "/" + colour + "/json.js",
             dataType: "jsonp",
             onload: function (data) {
                 $(node).replaceText(str, buildImage($.parseJSON(data.responseText)));
@@ -166,7 +165,7 @@ var brickJax = (function ($) {
 
         GM_xmlhttpRequest({
             method: "POST",
-            url: "https://brickjax.doodle.uk/bricks.aspx/JsonDetails/" + number + "/" + colour,
+            url: "https://brickjax.doodle.uk/bricks/Details/" + number + "/" + colour + "/json.js",
             dataType: "jsonp",
             onload: function (data) {
                 $(node).replaceText(str, buildLink($.parseJSON(data.responseText)));

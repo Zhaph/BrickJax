@@ -11,10 +11,10 @@
 // @include       https://bricks.meta.stackexchange.com/*
 // @include       https://chat.stackexchange.com/rooms/1741/*
 // @include       https://chat.stackexchange.com/rooms/1653/*
-// @include       https://stackapps.com/*
+// @include       https://stackapps.com/questions/2799/*
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js
 // @author        Kevin Cathcart and @Zhaph
-// @version       1.0.8
+// @version       1.0.9
 // @updateURL     https://github.com/Zhaph/BrickJax/raw/master/BrickJax.user.js
 // ==/UserScript==
 
@@ -151,7 +151,7 @@ var brickJax = (function ($) {
         log("Entered getBricksForImage");
 
         GM_xmlhttpRequest({
-            method: "POST",
+            method: "GET",
             url: "https://brickjax.doodle.uk/bricks/Details/" + number + "/" + colour + "/json.js",
             dataType: "jsonp",
             onload: function (data) {
@@ -164,7 +164,7 @@ var brickJax = (function ($) {
         log("Entered getBricksForLink");
 
         GM_xmlhttpRequest({
-            method: "POST",
+            method: "GET",
             url: "https://brickjax.doodle.uk/bricks/Details/" + number + "/" + colour + "/json.js",
             dataType: "jsonp",
             onload: function (data) {
